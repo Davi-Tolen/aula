@@ -3,81 +3,64 @@ import React, {useState} from "react";
 
 function App() {
 
-  const [membro, setMembro] = useState();
+  const [ingredientes, setIngredientes] = useState([]);
 
   function handleInputChanges(e){
-    const key = e.target.name;
+    const value = e.target.value;
 
-    const newMembro = {...membro}
-    newMembro[key] = e.target.value;
+    const newIngredientes = [...ingredientes]
+    const index = ingredientes.indexOf(value)
 
-    setMembro(newMembro)
-    console.log(newMembro)
+    if (index === -1) newIngredientes.push(value);
+    else newIngredientes.splice(index, 1);
+
+    setIngredientes(newIngredientes);
   }
 
   return (
     <div>
-      <h1>Novo Membro</h1>
+      <h1>Ingredientes</h1>
       <input 
-        type="text" 
-        placeholder="Nome" 
-        name = "nome"
-        onChange={handleInputChanges}/>
+        id="pepperonni"
+        type="checkbox"
+        value="pepperonni"
+        onChange={handleInputChanges}
+        />
+      <label htmlFor="pepperonni">pepperonni</label>
       <br></br>
       <input 
-        id="GS" 
-        type="radio" 
-        name="cargo" 
-        value="Gerente Scrum" 
-        onChange={handleInputChanges}/>
-      <label htmlFor="GS">Gerente Scrum</label>
+        id="queijo"
+        type="checkbox"
+        value="queijo"
+        onChange={handleInputChanges}
+        />
+      <label htmlFor="queijo">queijo</label>
       <br></br>
       <input 
-        id="GP" 
-        type="radio" 
-        name="cargo"
-        value="Gerente de Produtos" 
-        onChange={handleInputChanges}/>
-      <label htmlFor="GP">Gerente de Produtos</label>
+        id="frango"
+        type="checkbox"
+        value="frango"
+        onChange={handleInputChanges}
+        />
+      <label htmlFor="frango">frango</label>
       <br></br>
       <input 
-        type="Number" 
-        placeholder="Idade" 
-        name = "idade"
-        onChange={handleInputChanges}/>
+        id="catupiry"
+        type="checkbox"
+        value="catupiry"
+        onChange={handleInputChanges}
+        />
+      <label htmlFor="catupiry">catupiry</label>
       <br></br>
       <input 
-        type="text" 
-        placeholder="Estado" 
-        name = "Estado"
-        onChange={handleInputChanges}/>
-      <br></br>
-      <input 
-        type="text" 
-        placeholder="Cidade" 
-        name = "cidade"
-        onChange={handleInputChanges}/>
-      <br></br>
-      <input 
-        type="text" 
-        placeholder="Curso" 
-        name = "curso"
-        onChange={handleInputChanges}/>
-      <input 
-        id="di" 
-        type="radio" 
-        name="turno"
-        value="Diurno" 
-        onChange={handleInputChanges}/>
-      <label htmlFor="di">Diurno</label>
-      <input 
-        id="nt" 
-        type="radio" 
-        name="turno"
-        value="Noturno" 
-        onChange={handleInputChanges}/>
-      <label htmlFor="nt">Noturno</label>
-      
+        id="molho de tomate"
+        type="checkbox"
+        value="molho de tomate"
+        onChange={handleInputChanges}
+        />
+      <label htmlFor="molho de tomate">molho de tomate</label>
+      <h3>Selecionados:</h3>
+      <p>{ingredientes.join(" ")}</p>
     </div>
   );
 }
