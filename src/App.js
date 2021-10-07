@@ -1,27 +1,28 @@
 import React from "react";
+import Membro from "./Membro";
+import Title from "./Title";
+
+const braga = {
+  nome: "Arthur Braga",
+  idade: 19,
+  cargo: "Gerente de Produtos",
+  curso: "Engenharia de Sistemas",
+}
+
+const lima = {
+  nome: "Arthur Lima",
+  idade: 19,
+  cargo: "Gerente Scrum",
+  curso: "Engenharia Elétrica",
+}
 
 function App() {
-  const frase = "Hello World!!";
-  const numero = 40;
-
-  function clicou(exibicao){
-      alert(exibicao * 10)
-  }
-
   return (
     <div>
-      <h1>{frase + ":)"}{numero + 1}</h1>
-      <button onClick={() => clicou(20)}
-
-    >
-      20
-      </button>
-
-      <button onClick={() => clicou(100)}
-
-    >
-      100
-      </button>
+      <Title title="Membros">
+      <Membro membro={braga}/>
+      <Membro membro={lima}/>
+      </Title>
     </div>
   );
 }
