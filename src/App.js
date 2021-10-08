@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-
+import Selecionados from "./Components/Selecionados";
 
 function App() {
 
@@ -59,8 +59,8 @@ function App() {
         onChange={handleInputChanges}
         />
       <label htmlFor="molho de tomate">molho de tomate</label>
-      <h3>Selecionados:</h3>
-      <p>{ingredientes.join(" ")}</p>
+      <br></br>
+      <Selecionados selecionados={ingredientes}/>
     </div>
   );
 }
